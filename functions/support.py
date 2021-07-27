@@ -1,5 +1,6 @@
 import csv
 import glob
+import pandas as pd
 
 
 def csv_writer_spisok(data, path):
@@ -35,7 +36,8 @@ def file_search(way):
         except ValueError:
             continue
         print(address_file_client)
-        return address_file_client
+    df_a = pd.DataFrame(data=address_file_client, columns=['way', 'order'])
+    return df_a
 
 
 def search_by_client(address_file, year):
