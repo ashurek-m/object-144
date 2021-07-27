@@ -20,7 +20,39 @@ def csv_writer(data, path):
         csv_file.close()
 
 
-def file_search(way, name):
+def file_search(way):
     way_list_xls = glob.glob(way, recursive=True)
-    name_ = name
-    csv_writer_spisok(way_list_xls, name_)
+    address_file_client = []
+    for i in range(len(way_list_xls)):
+        file_adrress_client = []
+        name_file = way_list_xls[i].split("\\")
+        try:
+            if not 'рхив' in name_file[-2]:
+                num_order = int(name_file[-1][:5])
+                file_adrress_client.append(way_list_xls[i])
+                file_adrress_client.append(num_order)
+                address_file_client.append(file_adrress_client)
+        except ValueError:
+            continue
+        print(address_file_client)
+        return address_file_client
+
+
+def search_by_client(address_file, year):
+    file_csv = pd.read_csv(address_file, names=['path'])
+    address_file_client = []
+    file = file_csv.loc[:, 'path']
+    for i in range(len(file)):
+        file_adrress_client = []
+        name_file = file[i].split("\\")
+        try:
+            if not 'рхив' in name_file[-2]:
+                num_order = int(name_file[-1][:5])
+                file_adrress_client.append(file[i])
+                file_adrress_client.append(num_order)
+                address_file_client.append(file_adrress_client)
+        except ValueError:
+            continue
+    name = 'address_and_order_' + str(year) + '.csv'
+    csv_writer(address_file_client, name)
+    return name
