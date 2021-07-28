@@ -15,7 +15,7 @@ def open_df():
             print(f'{i}, {list_address[i][0]}')
         number_file = int(input('Введите номер файла,\n который желаете загрузить: '))
         df_pay = pr.open_file(list_address[number_file][0],
-                                  list_address[number_file][1])
+                              list_address[number_file][1])
         return df_pay
 
 
