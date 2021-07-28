@@ -10,7 +10,8 @@ def open_file(path, order):
     df.set_axis(const.columns_for_excel, axis='columns', inplace=True)
     return df
 
-
+'''
 df = open_file('E:/new_project/object-144/database/39589 - Пеленг (7616).xls', 39589)
 df.info()
 print(df.tail(10))
+'''
