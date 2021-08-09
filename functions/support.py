@@ -35,8 +35,8 @@ def file_search(way):
                 address_file_client.append(file_adrress_client)
         except ValueError:
             continue
-        print(address_file_client)
-    df_a = pd.DataFrame(data=address_file_client, columns=['way', 'order'])
+    #df_a = pd.DataFrame(data=address_file_client, columns=['way', 'order'])
+    df_a = address_file_client
     return df_a
 
 
