@@ -52,4 +52,5 @@ columns_for_excel = ['обозначение',
                      'резерв_т_сум_ч',
                      'т_партии_ч',
                      'номер_заказа']
-
+day = 24 * 60 * 60
+operation = {'package': day, 'control': (3 * day)}
