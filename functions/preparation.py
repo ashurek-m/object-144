@@ -30,5 +30,7 @@ def open_file_ocp(path, order):
 
 df = open_file_pay('E:/new_project/object-144/database/39589 - Пеленг (7616).xls', 39589)
 df.info()
-print(df.head(10))
-print(const.operation['control'], const.operation['package'])
+print(df.head(5))
+df_s = pd.Series(df.обозначение.unique())
+print(df_s.head(5))
+
